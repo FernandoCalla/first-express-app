@@ -1,10 +1,21 @@
 const express = require('express');
 const app = express();
 
-app.get('/makers/:nombre', (req, res) => {
-  let nombre=req.params.nombre;
-  nombre=nombre[0].toUpperCase() + nombre.slice(1);
-  res.send(`<h1>Hola ${nombre}!</h1>`);
+app.get('/', (req, res) => {
+  let letras=''
+  for(let i=0;i<50;i++){
+    const numeroVisual=i+1;
+    if(numeroVisual%2===0){
+      letras+=`<p>${numeroVisual} Soy Par!</p>`
+    }
+    else{
+      letras+=`<p>${numeroVisual} Soy Impar!</p>`
+    }
+  }
+  // for(let i=0;i<50;i++){    
+  res.send(letras);
+  
+  // }
 });
 
 
